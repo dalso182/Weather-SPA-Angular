@@ -29,7 +29,7 @@ h2 {
     height: 35px;
     line-height: 35px;
     position: relative;
-    min-width: 50px;
+    min-width: 100px;
 
   }
   .time {
@@ -40,10 +40,14 @@ h2 {
     border-right: none;
     padding-right: 0;
   }
-  .icon i {
-    position: absolute;
-    top: 12px;
-    width: 100px;
+  .icon {
+    width: 40px;
+    min-width: auto;
+    i {
+      position: absolute;
+      top: 12px;
+
+    }
   }
 
 }
