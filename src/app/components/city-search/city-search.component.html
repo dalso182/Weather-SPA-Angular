@@ -1,0 +1,13 @@
+<form class="add-city-form">
+  <mat-form-field class="city-autocomplete">
+    <input type="text" placeholder="Search City" matInput
+           [formControl]="cityFormControl" [matAutocomplete]="citiesAuto">
+    <mat-autocomplete #citiesAuto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button (click)="addCity()" mat-raised-button>Add City</button>
+  <p *ngIf="error" class="error">City not found, try selecting one from the dropdown</p>
+</form>

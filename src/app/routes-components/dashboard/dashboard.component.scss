@@ -1,0 +1,37 @@
+:host {
+  width: 100%;
+  padding-top: 40px;
+  position: relative;
+}
+
+.add-city-container {
+  background-color: white;
+  margin: 10px auto;
+  padding: 5px 20px;
+  width: 565px;
+  clear: both;
+}
+
+.cards-container {
+  margin: 0 auto;
+  max-width: 1270px;
+}
+
+.no-cities-msg {
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+}
+.controls {
+  text-align: right;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: 100%;
+  color: white;
+
+  >div {
+    margin-bottom: 5px;
+  }
+}

@@ -1,0 +1,28 @@
+<div class="controls">
+  <div>
+    Temp:
+    <mat-button-toggle-group>
+      <mat-button-toggle [checked]="tempUnit === 'c'"
+                         (change)="changeTempUnit('c')"
+                         value="bold">Celsius
+      </mat-button-toggle>
+      <mat-button-toggle [checked]="tempUnit === 'f'"
+                         (change)="changeTempUnit('f')"
+                         value="italic">Fahrenheit
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div>
+    Speed:
+    <mat-button-toggle-group>
+      <mat-button-toggle [checked]="speedUnit === 'km/h'"
+                         (change)="changeSpeedUnit('km/h')"
+                         value="bold">km/h
+      </mat-button-toggle>
+      <mat-button-toggle [checked]="speedUnit === 'm/h'"
+                         (change)="changeSpeedUnit('m/h')" value="italic">m/h
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+@import "variables";
+
+:host {
+  width: 100%;
+  position: relative;
+}
+.forecast-container {
+  width: 80%;
+  margin: 80px auto 0;
+  background-color: white;
+  padding: 10px 20px;
+
+}
+
+h2 {
+  margin: 0 auto;
+  color: white;
+  width: 80%;
+  padding-top: 10px;
+}
+
+.hour-forecast {
+  margin: 10px 5px;
+  max-width: 800px;
+  span {
+    display: inline-block;
+    padding: 0 20px;
+    border-right: 1px solid $background;
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+    min-width: 50px;
+
+  }
+  .time {
+    margin-right: 50px;
+    border-right: none;
+  }
+  .description, .icon {
+    border-right: none;
+    padding-right: 0;
+  }
+  .icon i {
+    position: absolute;
+    top: 12px;
+    width: 100px;
+  }
+
+}
+
+

@@ -28,9 +28,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/assets/scss/styles.scss",
+              "src/assets/scss/bootstrap-grid.css",
+              "src/assets/fonts/owfont-regular.min.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/assets/scss"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -93,9 +101,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/assets/src/styles.scss",
+              "src/assets/fonts/owfont-regular.min.css",
+              "src/assets/scss/bootstrap-grid.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/assets/scss"
+              ]
+            }
           }
         },
         "lint": {
@@ -124,6 +140,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Weather-SPA"
 }

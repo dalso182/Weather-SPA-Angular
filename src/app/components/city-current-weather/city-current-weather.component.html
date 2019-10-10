@@ -1,0 +1,34 @@
+<mat-card class="city-summary-card">
+  <div *ngIf="loading" class="spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+  <mat-card-header *ngIf="!loading">
+    <mat-card-title>{{currentWeather.name}}, {{currentWeather.sys.country}}</mat-card-title>
+    <mat-card-subtitle>{{date | date}}</mat-card-subtitle>
+    <span (click)="removeCity(currentWeather.name)" class="close">
+      <i class="material-icons">cancel</i>
+    </span>
+  </mat-card-header>
+  <mat-card-content *ngIf="!loading">
+    <div class="weather-description">{{currentWeather.weather[0].description}}</div>
+    <div class="icon-container">
+      <!--      <i class="owf owf-200 owf-5x"></i>-->
+      <img src="http://openweathermap.org/img/wn/{{currentWeather.weather[0].icon}}@2x.png" height="120px" width="120px"
+           alt="">
+    </div>
+    <div class="temperature">
+      {{currentWeather.main.temp | temp: tempUnit | number:'1.0-0' }}
+      <sup>&deg;{{tempUnit.toUpperCase()}}</sup>
+    </div>
+    <div class="indicators">
+      <ul>
+        <li><strong>Humidity: </strong>{{currentWeather.main.humidity}}%</li>
+        <li><strong>Wind: </strong> {{currentWeather.wind.speed | speed: speedUnit |  number:'1.0-0' }}  {{speedUnit}}</li>
+        <li><strong>Pressure: </strong> {{currentWeather.main.pressure}}hPa</li>
+      </ul>
+    </div>
+  </mat-card-content>
+  <mat-card-actions *ngIf="!loading">
+    <button mat-button mat-raised-button routerLink="/forecast/{{city.country}}/{{city.name}}">View Forecast</button>
+  </mat-card-actions>
+</mat-card>

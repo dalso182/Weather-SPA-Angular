@@ -1,0 +1,58 @@
+.city-summary-card {
+  width: 400px;
+  margin: 10px;
+  min-height: 335px;
+  float: left;
+
+  ul {
+    list-style: none;
+    text-align: left;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.temperature, .indicators {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.temperature {
+  font-size: 2.5rem;
+
+  sup {
+    font-size: 1.5rem;
+  }
+}
+.weather-description {
+  text-align: center;
+  text-transform: capitalize;
+}
+.icon-container {
+  text-align: center;
+}
+
+// overrides material component styles
+::ng-deep .city-summary-card{
+  .spinner {
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .mat-spinner.mat-progress-spinner {
+    display: inline-block;
+  }
+
+  .mat-card-content {
+    overflow: hidden;
+  }
+}
+
+

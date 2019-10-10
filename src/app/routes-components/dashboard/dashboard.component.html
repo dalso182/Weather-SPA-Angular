@@ -1,0 +1,17 @@
+<div class="dashboard">
+  <app-controls (onSpeedChange)="speedUnit = $event" (onTempChange)="tempUnit = $event"></app-controls>
+
+  <div class="add-city-container mat-elevation-z8">
+    <app-city-search (onCitySelected)="addCity($event)" [citiesOptions]="allCities"></app-city-search>
+  </div>
+
+  <div class="cards-container">
+    <app-city-current-weather [city]="city" [date]="date" [tempUnit]="tempUnit" [speedUnit]="speedUnit"
+                              (onCityRemoved)="removeCity($event)"
+                              *ngFor="let city of selectedCities">
+    </app-city-current-weather>
+    <div class="no-cities-msg" *ngIf="selectedCities.length === 0"> No cities have been selected, try searching and
+      adding one using the search box at the top`
+    </div>
+  </div>
+</div>
