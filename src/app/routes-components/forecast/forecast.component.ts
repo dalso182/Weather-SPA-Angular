@@ -9,22 +9,23 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./forecast.component.scss']
 })
 export class ForecastComponent implements OnInit {
-  loading = true;
-  forecast: ForecastWeather;
-  groupedForecast = [];
-  city = 'amsterdam';
-  country = 'NL';
-  tempUnit = 'c';
-  speedUnit = 'km/h';
+  loading = true; // spinner flag
+  forecast: ForecastWeather; // to store server response
+  groupedForecast = []; // to group days per date
+  city = 'amsterdam'; // default city
+  country = 'NL'; // default country
+  tempUnit = 'c'; // default temp unit
+  speedUnit = 'km/h'; // default speed unit
 
   constructor(private weatherService: WeatherService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    // we look for the city and country in the url and replace the default values
     this.route.paramMap.subscribe(params => {
       this.city = params.get('city');
       this.country = params.get('country');
-      this.getCityForecastWeather(this.city, this.country);
+      this.getCityForecastWeather(this.city, this.country); // we get the forecast for the city
 
     });
   }
@@ -41,7 +42,6 @@ export class ForecastComponent implements OnInit {
           this.groupedForecast[date].push(forecast);
 
         }
-        console.log('grouped', this.groupedForecast);
         this.loading = false;
       }
     );

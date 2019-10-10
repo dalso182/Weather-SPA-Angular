@@ -8,11 +8,11 @@ import {CityService} from '../../services/city.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  allCities: City[] = [];
-  selectedCities: City[] = [];
+  allCities: City[] = []; // to store al cities in the json
+  selectedCities: City[] = [];// current selected cities in the dashboard
   date: Date;
-  tempUnit = 'c';
-  speedUnit = 'km/h'
+  tempUnit = 'c'; // default temp unit
+  speedUnit = 'km/h' // default speed unit
 
 
   constructor(private cityService: CityService) { }
@@ -26,11 +26,11 @@ export class DashboardComponent implements OnInit {
      this.cityService.getCities().subscribe(
       response => {
         this.allCities = response;
-        console.log(this.allCities);
       }
     );
   }
 
+  // add a given city to the dashboard(selectedCities“)
   addCity(cityToAdd: City) {
     const alreadyExisits =  this.selectedCities.find(city => cityToAdd.name === city.name);
     if (!alreadyExisits) {
@@ -39,6 +39,8 @@ export class DashboardComponent implements OnInit {
       console.log('city already exists');
     }
   }
+
+  // removes a city from the dashboard (selectedCities)
   removeCity(name: string) {
     this.selectedCities = this.selectedCities.filter(city => city.name !== name);
   }

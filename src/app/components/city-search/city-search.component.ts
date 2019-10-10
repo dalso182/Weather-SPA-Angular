@@ -10,16 +10,15 @@ import {City} from '../../interfaces/city';
   styleUrls: ['./city-search.component.scss']
 })
 export class CitySearchComponent implements OnInit {
-  @Input() citiesOptions: City[];
-  @Output() onCitySelected = new EventEmitter();
+  @Input() citiesOptions: City[]; // available cities
+  @Output() citySelected = new EventEmitter(); // emits selected city
   cityFormControl = new FormControl();
   filteredOptions: Observable<City[]>;
-  selectedCity: City;
-  error = false;
+  selectedCity: City; // selected city from options
+  error = false; // flag to show/hide error message when trying to add non existen city
 
 
   ngOnInit() {
-    // this.citiesOptions.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
     this.filteredOptions = this.cityFormControl.valueChanges
       .pipe(
         startWith(''),
@@ -27,6 +26,8 @@ export class CitySearchComponent implements OnInit {
       );
   }
 
+  // this method is used to process when a user clicks the add button, if the city is valid it emits the city name to be used by the
+  // parent component
   addCity() {
     this.selectedCity = this.citiesOptions.find(city => city.name === this.cityFormControl.value);
     // if the type string was not found in the options, show error, else emit the selected city
@@ -35,11 +36,10 @@ export class CitySearchComponent implements OnInit {
     } else {
       this.error = false;
       this.cityFormControl.setValue('');
-      this.onCitySelected.emit(this.selectedCity); // we emit the selected city
+      this.citySelected.emit(this.selectedCity); // we emit the selected city
     }
-    console.log('selected', this.selectedCity);
   }
-
+  // filters the array of cities with the value input in the field
   _filter(value: string): City[] {
     const filterValue = value.toLowerCase();
     return this.citiesOptions.filter(option => option.name.toLowerCase().includes(filterValue));

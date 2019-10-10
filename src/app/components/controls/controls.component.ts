@@ -6,24 +6,25 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./controls.component.scss']
 })
 export class ControlsComponent implements OnInit {
-  speedUnit = 'km/h';
-  tempUnit = 'c';
-  @Output() onSpeedChange = new EventEmitter();
-  @Output() onTempChange = new EventEmitter();
+  speedUnit = 'km/h'; // km/h or m/h
+  tempUnit = 'c'; // c or f
+  @Output() speedChange = new EventEmitter();
+  @Output() tempChange = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
-
+// emits the new temp unit
   changeTempUnit(newTempUnit) {
     this.tempUnit = newTempUnit;
-    this.onTempChange.emit(this.tempUnit);
+    this.tempChange.emit(this.tempUnit);
   }
 
+  // emits the new speed unit
   changeSpeedUnit(newSpeedUnit) {
     this.speedUnit = newSpeedUnit;
-    this.onSpeedChange.emit(this.speedUnit);
+    this.speedChange.emit(this.speedUnit);
   }
 
 }

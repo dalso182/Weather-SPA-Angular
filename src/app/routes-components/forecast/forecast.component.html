@@ -1,7 +1,7 @@
 <h2 *ngIf="forecast">Forecast for {{forecast.city.name}}, {{forecast.city.country}}</h2>
 
 <div class="forecast-container" *ngIf="groupedForecast">
-  <app-controls (onSpeedChange)="speedUnit = $event" (onTempChange)="tempUnit = $event"></app-controls>
+  <app-controls (speedChange)="speedUnit = $event" (tempChange)="tempUnit = $event"></app-controls>
   <div *ngIf="loading" class="spinner">
     <mat-spinner></mat-spinner>
   </div>

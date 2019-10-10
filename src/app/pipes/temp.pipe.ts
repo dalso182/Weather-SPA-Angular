@@ -4,7 +4,7 @@ import {Pipe, PipeTransform} from '@angular/core';
   name: 'temp'
 })
 export class TempPipe implements PipeTransform {
-
+  // converts kelvin to celsius or fahrenheit
   transform(value: any, unit: any): any {
     let newValue = value;
     if (unit === 'c') {

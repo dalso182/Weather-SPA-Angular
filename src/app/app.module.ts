@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './routes-components/dashboard/dashboard.component';
 import { CityCurrentWeatherComponent } from './components/city-current-weather/city-current-weather.component';
-import { TempIndicatorComponent } from './components/temp-indicator/temp-indicator.component';
-import { WindIndicatorComponent } from './components/wind-indicator/wind-indicator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './layouts-components/header/header.component';
 import { FooterComponent } from './layouts-components/footer/footer.component';
@@ -25,8 +23,6 @@ import { ControlsComponent } from './components/controls/controls.component';
     AppComponent,
     DashboardComponent,
     CityCurrentWeatherComponent,
-    TempIndicatorComponent,
-    WindIndicatorComponent,
     HeaderComponent,
     FooterComponent,
     CitySearchComponent,

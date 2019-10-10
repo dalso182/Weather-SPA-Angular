@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'speed'
 })
 export class SpeedPipe implements PipeTransform {
-
+  // converts m/s to k/h or m/h
   transform(value: any, unit: any): any {
     let newValue = value;
     if (unit === 'km/h') {
